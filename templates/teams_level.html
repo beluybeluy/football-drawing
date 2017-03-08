@@ -1,0 +1,35 @@
+<section class="teams">
+   <div class="container">
+      <select name="" ng-model="teams.myVersion" id="">
+         <option value="fifa 16">fifa 16</option>
+         <option value="fifa 17">fifa 17</option>
+      </select>
+      <div id="liga-BBVA">
+         <!--      <h1 class="teams__title">Liga BBVA</h1>--><img class="teams__img" src="img/liga-BBVA.png" alt="">
+         <div class="teams__wrap">
+            <div class="teams__item"> <img ng-repeat="team in teams.clubs | filter: {liga:'Liga BBVA', country:team.cntrFilt, version: teams.myVersion}" ng-src="/img/{{team.src}}" alt="{{team.name}}" class="teams__item_img"> </div>
+         </div>
+      </div>
+      <!--      <h1 class="teams__title">Barclays PL</h1>--><img src="img/Barclays-PL.png" alt="" class="teams__img">
+      <div class="teams__wrap">
+         <div class="teams__item"> <img ng-repeat="team in teams.clubs | filter: {liga:'Barclays PL', country:team.cntrFilt,version: teams.myVersion}" ng-src="/img/{{team.src}}" alt="" class="teams__item_img"> </div>
+      </div>
+      <!--      <h1 class="teams__title">Bundesliga</h1>--><img src="img/bundesliga.png" alt="" class="teams__img">
+      <div class="teams__wrap">
+         <div class="teams__item"> <img ng-repeat="team in teams.clubs | filter: {liga:'Bundesliga', country:team.cntrFilt, version: teams.myVersion}" ng-src="/img/{{team.src}}" alt="" class="teams__item_img"> </div>
+      </div>
+      <!--      <h1 class="teams__title">Seria A</h1>--><img src="img/Serie-A.png" alt="" class="teams__img">
+      <div class="teams__wrap">
+         <div class="teams__item"> <img ng-repeat="team in teams.clubs | filter: {liga:'Seria A', country:team.cntrFilt, version: teams.myVersion}" ng-src="/img/{{team.src}}" alt="" class="teams__item_img"> </div>
+      </div>
+      <!--       <h1 class="teams__title">Ligue 1</h1>--><img src="img/Ligue-1.png" alt="" class="teams__img">
+      <div class="teams__wrap">
+         <div class="teams__item"> <img ng-repeat="team in teams.clubs | filter: {liga:'Ligue 1', country:team.cntrFilt, version: teams.myVersion}" ng-src="/img/{{team.src}}" alt="" class="teams__item_img"> </div>
+      </div>
+      <!--
+      <h1 class="teams__title">All National</h1>
+      <div class="teams__wrap">
+         <div class="teams__item"> <img ng-repeat="team in teams.nationalTeams" ng-src="/img/{{team.src}}" alt="" class="teams__item_img"> </div>
+      </div>
+--></div>
+</section>

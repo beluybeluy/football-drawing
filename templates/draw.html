@@ -1,0 +1,71 @@
+<section class="draw">
+   <my-teams teams="draw.arrTeams"></my-teams>
+   <p ng-if="draw.checkAmPl">
+      <label for="">amount of players:</label>
+      <select ng-model="draw.amountPlayers" ng-change="draw.amountPlayer()" name="" id="selectPlayer">
+         <option value="">---</option>
+         <option ng-repeat="item in draw.countTeams | limitTo: draw.arrTeams.length" value="{{item}}">{{item}}</option>
+      </select>
+   </p>
+   <button ng-if="draw.checkAmPl" ng-click="draw.toggleModal()" class="draw__btn">+ player</button>
+   <div class="draw__table_players">
+      <table ng-if="draw.checkTabPl">
+         <thead>
+            <th>Name</th>
+            <th>Team</th>
+            <th>G</th>
+            <th>W</th>
+            <th>D</th>
+            <th>L</th>
+            <th>S</th>
+            <th>-</th>
+            <th>A</th>
+            <th>+/-</th>
+            <th>P</th>
+         </thead>
+         <tr ng-repeat="player in draw.players | orderBy:'points':true">
+            <td>{{player.name}}</td>
+            <td class="draw__field_team" style="background-image:url('img/{{player.img}}')">{{player.team}} </td>
+            <td>{{player.games}}</td>
+            <td>{{player.win}}</td>
+            <td>{{player.draw}}</td>
+            <td>{{player.lose}}</td>
+            <td>{{player.scored}}</td>
+            <td> - </td>
+            <td>{{player.against}}</td>
+            <td>{{player.scored - player.against}}</td>
+            <td>{{player.points}}</td>
+         </tr>
+      </table>
+      <modal-dialog show='draw.modalShown' width='500px' height='12%'>
+         <label class="modal__title" for="">your name:</label>
+         <input class="modal__inpt" type="text" ng-model="draw.namePlayer">
+         <button class="modal__btn" ng-click="draw.createPlayer(); draw.toggleModal()">send</button>
+      </modal-dialog>
+   </div>
+   <div class="draw__calendar_table">
+      <table id="table__calendar" id="result__table">
+         <thead>
+            <tr>
+               <th>Home</th>
+               <th>Away</th>
+               <th>Result</th>
+            </tr>
+         </thead>
+         <tbody>
+            <!--            <tr ng-repeat="game in draw.games | orderBy: draw.random">-->
+            <tr ng-repeat="game in draw.games">
+               <td class="draw__game_team" style="background-image:url('img/{{game.img1}}')">{{game.team1}}</td>
+               <td class="draw__game_team" style="background-image:url('img/{{game.img2}}')">{{game.team2}}</td>
+               <td>
+                  <input class="draw__result_inpt" type="text" ng-model="game.goals1">
+                  <input class="draw__result_inpt" type="text" ng-model="game.goals2">
+                  <input class="draw__result_btn" type="button" value="+" ng-click="draw.add(game)"> </td>
+            </tr>
+         </tbody>
+      </table>
+   </div>
+   <p>
+      <button class="draw__btn" ng-if="draw.checkCalendar" ng-click="draw.createCalendar()">+ Calendar</button>
+   </p>
+</section>

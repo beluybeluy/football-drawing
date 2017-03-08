@@ -1,0 +1,191 @@
+body {}
+
+.box {
+   min-height: 100px;
+   max-width: 200px;
+   font-size: 16px;
+   background: yellow;
+   float: left;
+   margin: auto;
+   /*
+   vertical-align: top;
+   display: inline-block;
+*/
+   padding: 5px;
+   border: 3px solid #000;
+   box-sizing: border-box;
+}
+
+.clear {
+   clear: left;
+}
+
+* {
+   padding: 0;
+   margin: 0;
+}
+
+.wrapper {
+   margin-top: 300px;
+   z-index: 0;
+   font-size: 0;
+   /*   min-height:500px;*/
+   overflow: auto;
+   background: pink;
+   /*   clear: both;*/
+}
+
+.container p {
+   color: green;
+}
+
+.container>p {
+   color: red;
+}
+
+.container~p {
+   color: pink;
+}
+
+.container+p {
+   color: blue;
+}
+
+.line-block {
+   display: inline-block;
+   background: aqua;
+}
+
+.line {
+   display: inline;
+}
+
+.block {
+   display: block;
+   height: 50px;
+   background: aqua;
+   padding: 10px;
+}
+
+.simple {
+   background: pink;
+   color: #fff;
+   max-width: 400px;
+   padding: 10px;
+   margin: 30px;
+   border: 13px solid red;
+}
+
+.br-box {
+   box-sizing: border-box;
+}
+
+
+/*NAV*/
+
+.header {
+   background: aqua;
+   overflow: auto;
+   position: absolute;
+   display: block;
+   padding: 20px;
+   top: 0;
+   right: 0;
+   left: 0;
+/*
+   left: 0;
+   right: 0;
+*/
+   height: 70px;
+}
+
+nav {
+   float: right;
+   padding: 20px;
+/*   display: none*/
+}
+
+.nav-list {
+   list-style: none;
+   font-size: 0;
+}
+
+.nav-item {
+   display: inline-block;
+}
+
+.nav-link {
+   font: 18px/18px sans-serif;
+   text-transform: uppercase;
+   padding: 5px 20px;
+}
+
+.touch-menu {
+     display: none;
+
+ position: absolute;
+top: 50%;
+   right: 20px;
+transform: translateY(-50%);
+   width: 50px;
+   height: 48px;
+   background: #fff;
+}
+.touch-divider{
+   display: block;
+
+   position: absolute;
+  left:0;
+   right: 0;
+   height: 10px;
+   background: #000;
+   border-radius: 15px;
+   transition: 1s ease;
+   opacity: 1;
+}
+.touch-divider:first-child{
+   top: 0;
+}
+.touch-divider:nth-child(2),.touch-divider:nth-child(3){
+   top: 18px;
+}
+.touch-divider:last-child{
+   top: 36px;
+}
+.touch-divider.open:first-child{
+   top: 18px;
+    transform: rotate(-45deg);
+}
+.touch-divider.open:nth-child(2){
+/*   opacity: 0;*/
+   left:100%;
+   
+}
+.touch-divider.open:nth-child(3){
+/*   opacity: 0;*/
+   right:100%;
+   
+}
+.touch-divider.open:last-child{
+   top: 18px;
+   transform: rotate(45deg);
+}
+@media (max-width:768px){
+ .touch-menu {
+     display: block;
+   }
+   .nav{
+      position: absolute;
+      top:110px;
+      left:0;
+      right: 0;
+      z-index: 100;
+   }
+   .nav-item{
+      display:block; 
+      text-align: center;
+   }
+   .nav-link{
+      color: #000;
+   }
+}

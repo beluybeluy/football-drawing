@@ -1,0 +1,27 @@
+<section class="teams2">
+   <div class="container">
+      <h1 class="teams__title">Clubs {{lvlFilt}} {{cntrFilt}} </h1>
+      <select name="" ng-model="lvlFilt" id="">
+         <option value="">all levels</option>
+         <option value="high">high</option>
+         <option value="medium">medium</option>
+      </select>
+      <input type="button" value="reset &#10227;" class="draw__btn" ng-click="cntrFilt=''; lvlFilt=''">
+      <select name="" ng-model="cntrFilt" id="">
+        <option value="">all ligues</option>
+         <option value="England">Barclays PL</option>
+         <option value="Spain">Liga BBVA</option>
+         <option value="Germany">Bundesliga</option>
+         <option value="Italy">Seria A</option>
+         <option value="Portugal">Liga NOS</option>
+         <option value="France">Ligue 1</option>
+         <option value="Netherlands">Netherlands</option>
+         <option value="Brazil">Brazil</option>
+         <option value="Argentina">Argentina</option>
+         
+      </select>
+      <div class="teams__wrap">
+         <div class="teams__item"> <img ng-repeat="team in clubs  | filter: { level:lvlFilt, country:cntrFilt} as teams" ng-src="../../img/{{team.src}}" alt="" class="teams__item_img"> </div>
+      </div>
+   </div>
+</section>
